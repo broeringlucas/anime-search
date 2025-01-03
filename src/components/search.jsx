@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import { getJSON } from "../api";
 import { API_URL } from "../config";
-
-import Card from "./card";
+import Card from "./Card";
+import { useAnimeContext } from "../AnimeContext"; // Importando o contexto
 
 const Search = () => {
   const [anime, setAnime] = useState("");
-  const [searchResult, setSearchResult] = useState(null);
-
-  console.log(searchResult);
+  const { animeList, setAnimeList } = useAnimeContext(); // Pegando e atualizando o animeList
 
   const handleAnimeChange = (e) => {
     setAnime(e.target.value);
@@ -21,13 +19,14 @@ const Search = () => {
       return;
     }
     try {
+      // Verificando se os dados já estão carregados
       const data = await getJSON(
-        `${API_URL}anime?filter[text]=${anime}&page[limit]=1`
+        `${API_URL}anime?filter[text]=${anime}&page[limit]=5`
       );
-      setSearchResult(data.data[0]);
+      // Armazenando os animes no contexto
+      setAnimeList(data.data);
     } catch (error) {
       console.error("An error occurred:", error);
-      setSearchResult(null);
     }
   };
 
@@ -45,7 +44,10 @@ const Search = () => {
             Search
           </button>
         </form>
-        <Card data={searchResult} />
+        <div className="anime-cards">
+          {animeList &&
+            animeList.map((anime) => <Card key={anime.id} data={anime} />)}
+        </div>
       </div>
     </div>
   );

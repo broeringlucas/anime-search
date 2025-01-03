@@ -1,15 +1,21 @@
 import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { AnimeProvider } from "./AnimeContext"; // Provedor do contexto
+import AnimeDetail from "./components/AnimeDetail"; // Página de detalhes do anime
+import Search from "./components/Search";
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-import Search from "./components/search";
-
-export default function App() {
+const App = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" exact element={<Search />} />
-      </Routes>
-    </BrowserRouter>
+    <AnimeProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Search />} /> {/* Rota para a Home */}
+          <Route path="/anime/:id" element={<AnimeDetail />} />{" "}
+          {/* Rota para o Detalhe do Anime */}
+        </Routes>
+      </Router>
+    </AnimeProvider>
   );
-}
+};
+
+export default App;
