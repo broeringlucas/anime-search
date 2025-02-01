@@ -1,39 +1,35 @@
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
-import { useAnimeContext } from "../AnimeContext"; // Importando o contexto
-import { getJSON } from "../api"; // Importando a função getJSON
+// Card.js
+import React from "react";
+import { Link, useNavigate } from "react-router-dom";
+import "../styles/Card.css";
 
 const Card = ({ data }) => {
-  const { animeDetails, setAnimeDetails } = useAnimeContext();
+  const navigate = useNavigate();
 
-  const handleCardClick = async () => {
-    // Verificar se os detalhes do anime já estão carregados no contexto
-    if (!animeDetails[data.id]) {
-      const animeDetail = await getJSON(
-        `https://kitsu.io/api/edge/anime/${data.id}`
-      );
-      setAnimeDetails((prevDetails) => ({
-        ...prevDetails,
-        [data.id]: animeDetail.data.attributes,
-      }));
-    }
+  const handleCardClick = () => {
+    navigate(`/anime/${data.mal_id}`);
   };
 
   return (
-    <div className="card mb-4 shadow-sm">
-      <div className="card-body text-center">
-        <Link
-          to={`/anime/${data.id}`}
-          className="text-decoration-none"
-          onClick={handleCardClick}
-        >
-          <img
-            src={data.attributes.posterImage.small}
-            alt={data.attributes.canonicalTitle}
-            className="img-fluid rounded mb-2"
-          />
-          <h5>{data.attributes.canonicalTitle}</h5>
-        </Link>
+    <div
+      className="card-container"
+      onClick={handleCardClick}
+      onMouseEnter={(e) => {
+        e.currentTarget.querySelector(".card-title").style.opacity = 1;
+        e.currentTarget.style.transform = "scale(1.05)";
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.querySelector(".card-title").style.opacity = 0;
+        e.currentTarget.style.transform = "scale(1)";
+      }}
+    >
+      <div className="card-body text-center d-flex flex-column justify-content-between">
+        <img
+          src={data.images.jpg.image_url}
+          alt={data.title}
+          className="img-fluid rounded mb-3 card-img"
+        />
+        <h5 className="card-title">{data.title}</h5>
       </div>
     </div>
   );

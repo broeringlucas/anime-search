@@ -1,52 +1,61 @@
-import React, { useState } from "react";
-import { getJSON } from "../api";
+import React, { useState, useEffect } from "react";
+import { getJSON } from "../utils/apiUtil";
 import { API_URL } from "../config";
 import Card from "./Card";
-import { useAnimeContext } from "../AnimeContext"; // Importando o contexto
 
 const Search = () => {
   const [anime, setAnime] = useState("");
-  const { animeList, setAnimeList } = useAnimeContext(); // Pegando e atualizando o animeList
+  const [animeList, setAnimeList] = useState([]);
 
-  const handleAnimeChange = (e) => {
-    setAnime(e.target.value);
+  const getAnime = (anime) => {
+    return getJSON(`${API_URL}anime?q=${anime}`);
   };
 
-  const handleButtonClick = async (e) => {
-    e.preventDefault();
-    if (!anime) {
-      console.log("erro");
-      return;
+  useEffect(() => {
+    if (anime.trim().length >= 3) {
+      const delay = setTimeout(() => {
+        getAnime(anime).then((response) => {
+          setAnimeList(
+            response.data.filter((item) =>
+              item.title.toLowerCase().startsWith(anime.toLowerCase())
+            )
+          );
+        });
+      }, 300);
+
+      return () => clearTimeout(delay);
+    } else {
+      setAnimeList([]);
     }
-    try {
-      // Verificando se os dados já estão carregados
-      const data = await getJSON(
-        `${API_URL}anime?filter[text]=${anime}&page[limit]=5`
-      );
-      // Armazenando os animes no contexto
-      setAnimeList(data.data);
-    } catch (error) {
-      console.error("An error occurred:", error);
-    }
-  };
+  }, [anime]);
 
   return (
-    <div className="container">
-      <div className="search-container">
-        <form className="search-form">
+    <div
+      className="container-fluid text-light min-vh-100 py-5 "
+      style={{ backgroundColor: "#081118" }}
+    >
+      <div className="container text-center">
+        <h1 className="mb-4" style={{ fontWeight: "bold" }}>
+          Anime Search
+        </h1>
+        <form
+          className="d-flex justify-content-center"
+          style={{ marginBottom: "85px" }}
+          onSubmit={(e) => e.preventDefault()}
+        >
           <input
             type="text"
-            className="search-form__input"
-            placeholder="Search for a movie"
-            onChange={handleAnimeChange}
+            className="form-control w-50 me-2"
+            placeholder="Search for an anime"
+            onChange={(e) => setAnime(e.target.value)}
           />
-          <button className="search-form__button" onClick={handleButtonClick}>
-            Search
-          </button>
         </form>
-        <div className="anime-cards">
-          {animeList &&
-            animeList.map((anime) => <Card key={anime.id} data={anime} />)}
+        <div className="row g-4">
+          {animeList.map((anime) => (
+            <div className="col-6 col-md-4 col-lg-3" key={anime.id}>
+              <Card data={anime} />
+            </div>
+          ))}
         </div>
       </div>
     </div>

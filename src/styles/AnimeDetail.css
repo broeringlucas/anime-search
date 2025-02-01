@@ -1,0 +1,47 @@
+.anime-detail-container {
+  background-color: #081118;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 100px;
+  padding-bottom: 50px;
+}
+
+.anime-poster {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+  object-fit: cover;
+  margin-top: 10px;
+}
+
+.detail-container {
+  border: 1px solid #ff4500;
+  border-radius: 20px;
+  border-width: 3px;
+  border-style: inset;
+  padding: 10px;
+  width: 50%;
+}
+
+.detail-title {
+  color: #ff4500;
+  font-size: 1.3rem;
+}
+
+.anime-title {
+  color: #ff4500;
+  font-weight: bold;
+}
+
+.score-members-container {
+  padding: 10px;
+}
+
+.trailer-title {
+  color: #ff4500;
+}
