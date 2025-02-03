@@ -1,4 +1,4 @@
-# Anime Search Aplication
+# Anime Search Application
 
 Anime Search is a React application developed as a learning project to enhance React skills. The application fetches anime data from an external API and displays relevant information, such as the anime's name, director, poster image, and more. The API docs can be found at: https://jikan.moe/
 
