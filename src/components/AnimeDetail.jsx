@@ -67,8 +67,8 @@ const AnimeDetail = () => {
             <p>
               {anime.synopsis.replace(/\[Written by MAL Rewrite\]$/, "").trim()}
             </p>
-            <div className="d-flex justify-content-between">
-              <div className="col-md-3 detail-container">
+            <div className="d-flex justify-content-between detail-container">
+              <div className="col-md-3 ">
                 <p className="fw-bold detail-title">Details</p>
                 <p>Episodes: {anime.episodes}</p>
                 <p>Rating: {anime.rating}</p>
