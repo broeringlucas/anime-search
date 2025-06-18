@@ -34,7 +34,7 @@ anime-search/
 
 ## How to run 
 
-1. Clone the repository: git clone [https://github.com/broeringlucas/projeto-react.git](https://github.com/broeringlucas/anime-search.git)
+1. Clone the repository: git clone [https://github.com/broeringlucas/anime-search.git](https://github.com/broeringlucas/anime-search.git)
 2. Navigate to the project directory: cd anime-search
 3. Install dependencies: npm install
 4. Start the application:  npm start
@@ -53,8 +53,8 @@ The application is deployed and accessible at: [https://lucasbroering-anime-sear
 
 <details>
 <summary>Screenshot 2</summary>
-
-![screenshot2](https://github.com/user-attachments/assets/79b89526-15a0-4e97-ba74-bbcb189c8309)
+  
+![screenshot2](https://github.com/user-attachments/assets/6993a431-25c4-4ffb-8776-35016b523d5c)
 
 </details>
 
