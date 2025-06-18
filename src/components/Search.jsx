@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { getJSON } from "../utils/apiUtil";
 import { API_URL } from "../config";
 import Card from "./Card";

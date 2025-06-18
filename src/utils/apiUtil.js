@@ -9,7 +9,6 @@ export const getJSON = async function (url) {
     const data = await res.json();
     return data;
   } catch (error) {
-    console.error("Erro ao buscar dados:", error);
     throw error;
   }
 };

@@ -1,12 +1,10 @@
-// AnimeDetail.js
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Loading from "./Loading";
 import { FaStar, FaUsers } from "react-icons/fa";
 import { getJSON } from "../utils/apiUtil";
 import { API_URL } from "../config";
 import "../styles/AnimeDetail.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 const AnimeDetail = () => {
   const { id } = useParams();
@@ -34,9 +32,6 @@ const AnimeDetail = () => {
       });
     });
   }, [id]);
-
-  console.log(anime);
-  console.log(staff);
 
   if (loading) {
     return <Loading />;
