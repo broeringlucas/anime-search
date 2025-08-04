@@ -41,7 +41,7 @@ anime-search/
 
 ## Deployment
 
-The application is deployed and accessible at: [https://lucasbroering-anime-search.vercel.app/](https://lucasbroering-anime-search.vercel.app/)
+The application is deployed and accessible at: [https://anime-search.lucasbroering.dev](https://anime-search.lucasbroering.dev)
 
 ## Screenshots 
 <details>
