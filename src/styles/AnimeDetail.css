@@ -4,8 +4,8 @@
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding-top: 100px;
+  align-items: flex-start;
+  padding-top: 60px;
   padding-bottom: 50px;
 }
 

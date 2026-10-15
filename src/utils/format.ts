@@ -42,7 +42,10 @@ export const formatStatus = (status: string | null): string => {
   return text.charAt(0).toUpperCase() + text.slice(1);
 };
 
-export const cleanDescription = (description: string | null): string[] => {
+export const formatList = (items: string[]): string =>
+  items.length ? items.join(", ") : "Unknown";
+
+export const cleanDescription =(description: string | null): string[] => {
   if (!description) return ["No synopsis available."];
 
   return description

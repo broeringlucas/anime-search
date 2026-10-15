@@ -7,6 +7,7 @@ import {
   cleanDescription,
   displayTitle,
   formatAired,
+  formatList,
   formatStatus,
   formatType,
   getDirector,
@@ -93,10 +94,10 @@ const AnimeDetail = () => {
                 <p>Episodes: {anime.episodes ?? "?"}</p>
                 <p>Type: {formatType(anime.format)}</p>
                 <p>Status: {formatStatus(anime.status)}</p>
-                <p>Genres: {anime.genres.join(", ")}</p>
+                <p>Genres: {formatList(anime.genres)}</p>
                 <p>
                   Studios:{" "}
-                  {anime.studios.nodes.map((studio) => studio.name).join(", ")}
+                  {formatList(anime.studios.nodes.map((studio) => studio.name))}
                 </p>
               </div>
               <div className="col-md-3 d-flex flex-column justify-content-between score-members-container">
