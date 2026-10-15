@@ -1,7 +1,13 @@
 .card-container {
+  display: block;
   height: auto;
   overflow: hidden;
+  text-decoration: none;
   transition: transform 0.2s ease-in-out;
+}
+
+.card-container:hover {
+  transform: scale(1.05);
 }
 
 .card-img {
@@ -13,7 +19,12 @@
 .card-title {
   font-size: 1rem;
   margin-bottom: 10px;
-  color: #ff4500;
+  color: var(--color-accent);
   opacity: 0;
   transition: opacity 0.3s ease;
+}
+
+.card-container:hover .card-title,
+.card-container:focus-visible .card-title {
+  opacity: 1;
 }

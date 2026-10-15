@@ -1,6 +1,6 @@
 .anime-detail-container {
-  background-color: #081118;
-  color: white;
+  background-color: var(--color-bg);
+  color: var(--color-text);
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -20,7 +20,7 @@
 }
 
 .detail-container {
-  border: 1px solid #ff4500;
+  border: 1px solid var(--color-accent);
   border-radius: 20px;
   border-width: 3px;
   border-style: inset;
@@ -28,12 +28,12 @@
 }
 
 .detail-title {
-  color: #ff4500;
+  color: var(--color-accent);
   font-size: 1.3rem;
 }
 
 .anime-title {
-  color: #ff4500;
+  color: var(--color-accent);
   font-weight: bold;
 }
 
@@ -42,5 +42,18 @@
 }
 
 .trailer-title {
-  color: #ff4500;
+  color: var(--color-accent);
+}
+
+.detail-icon {
+  color: var(--color-accent);
+}
+
+.detail-divider {
+  width: 100%;
+  border: 2px dashed var(--color-accent);
+}
+
+.detail-back {
+  margin-bottom: 20px;
 }

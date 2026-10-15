@@ -1,0 +1,91 @@
+.status-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+  padding: 40px 32px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  color: var(--color-text);
+  text-align: center;
+  animation: status-fade-in 0.25s ease-out;
+}
+
+.status-message-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  margin-bottom: 8px;
+  border-radius: 50%;
+  background-color: var(--color-accent-soft);
+  color: var(--color-accent);
+  font-size: 36px;
+}
+
+.status-message-title {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.status-message-description {
+  margin: 0;
+  color: var(--color-text-muted);
+}
+
+.status-message-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.status-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border: 2px solid var(--color-accent);
+  border-radius: 999px;
+  background-color: var(--color-accent);
+  color: var(--color-text);
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.status-button:hover {
+  background-color: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+  color: var(--color-text);
+  transform: translateY(-1px);
+}
+
+.status-button-outline {
+  background-color: transparent;
+  color: var(--color-accent);
+}
+
+.status-button-outline:hover {
+  background-color: var(--color-accent-soft);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+@keyframes status-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

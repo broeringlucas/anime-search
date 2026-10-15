@@ -1,0 +1,12 @@
+.search-container {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+.search-title {
+  font-weight: bold;
+}
+
+.search-form {
+  margin-bottom: 85px;
+}

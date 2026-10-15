@@ -1,6 +1,6 @@
 # Anime Search Application
 
-Anime Search is a React application developed as a learning project to enhance React skills. The application fetches anime data from an external API and displays relevant information, such as the anime's name, director, poster image, and more. The API docs can be found at: https://jikan.moe/
+Anime Search is a React application developed as a learning project to enhance React skills. The application fetches anime data from an external API and displays relevant information, such as the anime's name, director, poster image, and more. Data comes from the [AniList GraphQL API](https://docs.anilist.co/).
 
 ## Project Structure 
 
@@ -8,12 +8,16 @@ Anime Search is a React application developed as a learning project to enhance R
 anime-search/
 ├── public/                # Static files             
 ├── src/
-│   ├── components/        # Reusable components         
+│   ├── components/        # Reusable components
+│   ├── hooks/             # Custom hooks
 │   ├── styles/            # CSS Styles
-|   ├── utils/             # Uils functions, such as fetch data
-│   ├── App.js             # Main application file
-│   ├── config.js          # API info
-│   ├── index.js           # Entry point
+│   ├── types/             # TypeScript types for API data
+│   ├── utils/             # API client (api.ts) and formatting helpers
+│   ├── App.tsx            # Main application file
+│   ├── main.tsx           # Entry point
+├── index.html             # Vite HTML entry
+├── vite.config.ts         # Vite config
+├── tsconfig.json          # TypeScript config
 ├── package.json           # Project metadata and dependencies
 ├── package-lock.json      # Dependency lockfile
 ├── README.md              # Project documentation
@@ -23,13 +27,14 @@ anime-search/
 
 - Fetch and display anime details
 - Interactive UI built with React
-- API integration using [Jikan API](https://jikan.moe/)
+- API integration using [AniList GraphQL API](https://docs.anilist.co/)
 
 ## Technologies Used
 
 - React
-- JavaScript
-- Fetch API for API requests
+- TypeScript
+- Vite
+- Fetch API + GraphQL for API requests
 - CSS and Bootstrap for styling
 
 ## How to run 
@@ -37,7 +42,10 @@ anime-search/
 1. Clone the repository: git clone [https://github.com/broeringlucas/anime-search.git](https://github.com/broeringlucas/anime-search.git)
 2. Navigate to the project directory: cd anime-search
 3. Install dependencies: npm install
-4. Start the application:  npm start
+4. Start the application: npm start (http://localhost:3000)
+5. Build for production: npm run build (output in `build/`)
+
+Or with Docker: `docker compose up`
 
 ## Deployment
 

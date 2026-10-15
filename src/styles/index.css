@@ -1,0 +1,31 @@
+:root {
+  --color-bg: #081118;
+  --color-surface: #0f1b24;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-accent: #ff4500;
+  --color-accent-hover: #ff5f24;
+  --color-accent-soft: rgba(255, 69, 0, 0.12);
+  --color-text: #ffffff;
+  --color-text-muted: #9aa5b1;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--color-accent);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
